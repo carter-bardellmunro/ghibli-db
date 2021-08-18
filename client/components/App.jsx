@@ -1,12 +1,13 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 
-import Words from './Words'
-import AddWord from './AddWord'
+import Home from './Home'
+import FilmList from './FilmList'
 
 const App = () => (
   <div className='app-container'>
-    <Words />
-    <AddWord />
+    <Route exact path="/" component={Home}/>
+    <Route exact path="/films" component={FilmList}/>
   </div>
 )
 
