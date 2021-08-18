@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import { getGhibliFilms } from '../api'
 
@@ -13,16 +14,16 @@ function FilmList () {
       })
   }, [])
 
-  console.log(ghibliFilms)
-
   return (
     <>
       <div>A list of all Ghibli films:</div>
-      {ghibliFilms.map(film => (
-        <>
-          <h2 key={film.id}>{film.title}</h2>
-        </>
-      ))}
+      <ul>
+        {ghibliFilms.map(film => (
+          <>
+            <li key={film.id}><Link to={`/films/${film.id}`}>{film.title}</Link></li>
+          </>
+        ))}
+      </ul>
     </>
   )
 }
