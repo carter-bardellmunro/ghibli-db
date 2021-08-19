@@ -1,27 +1,51 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
-import { getGhibliFilms } from '../api'
+import { getGhibliFilms, getGhibliPeople } from '../api'
 
 function Film () {
   const { id } = useParams()
 
-  const [ghibliFilms, setGhibliFilms] = useState([])
+  const [ghibliFilm, setGhibliFilm] = useState([])
+  const [ghibliPeople, setGhibliPeople] = useState([])
 
   useEffect(() => {
     getGhibliFilms()
-      .then(films => setGhibliFilms(films.find(currentFilm => currentFilm.id === id)))
+      .then(films => setGhibliFilm(films.find(currentFilm => currentFilm.id === id)))
       .catch((err) => {
         console.error(err.message)
       })
   }, [])
 
-  // const film = getGhibliFilms.find(currentFilm => currentFilm.id === id)
+  useEffect(() => {
+    getGhibliPeople()
+      .then(people => setGhibliPeople(people))
+      .catch((err) => {
+        console.error(err.message)
+      })
+  }, [])
+
+  const people = ghibliPeople.filter(person => person.films[0] === `https://ghibliapi.herokuapp.com/films/${id}`)
+
+  // console.log(people)
 
   return (
     <>
       <div>
-        <p>{ghibliFilms.description}</p>
+        <h3><Link to="/films">Return</Link></h3>
+        <h1>{ghibliFilm.title}</h1>
+        <ul>
+          <li>Director: {ghibliFilm.director}</li>
+          <li>Producer: {ghibliFilm.producer}</li>
+          <li>Release: {ghibliFilm.release_date}</li>
+          <li>Length: {ghibliFilm.running_time}</li>
+        </ul>
+        <p>{ghibliFilm.description}</p>
+        <ul>
+          {people.map(result => (
+            <li key={result.id}>{result.name}</li>
+          ))}
+        </ul>
       </div>
     </>
   )

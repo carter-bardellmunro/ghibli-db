@@ -11,3 +11,13 @@ export function getGhibliFilms () {
       console.error('Error:', err)
     })
 }
+
+export function getGhibliPeople () {
+  return request('https://ghibliapi.herokuapp.com/people/')
+    .then(res => {
+      return res.body
+    })
+    .catch(err => {
+      console.error('Error:', err)
+    })
+}
