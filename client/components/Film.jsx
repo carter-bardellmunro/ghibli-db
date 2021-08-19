@@ -27,8 +27,6 @@ function Film () {
 
   const people = ghibliPeople.filter(person => person.films[0] === `https://ghibliapi.herokuapp.com/films/${id}`)
 
-  // console.log(people)
-
   return (
     <>
       <div>
@@ -41,11 +39,18 @@ function Film () {
           <li>Length: {ghibliFilm.running_time}</li>
         </ul>
         <p>{ghibliFilm.description}</p>
-        <ul>
-          {people.map(result => (
-            <li key={result.id}>{result.name}</li>
-          ))}
-        </ul>
+        <h2>Characters</h2>
+        {people.map(result => (
+          <>
+            <h3 key={result.id}>{result.name}</h3>
+            <ul>
+              <li>Gender: {result.gender}</li>
+              <li>Age: {result.age}</li>
+              <li>Eye Colour: {result.eye_color}</li>
+              <li>Hair Colour: {result.hair_color}</li>
+            </ul>
+          </>
+        ))}
       </div>
     </>
   )

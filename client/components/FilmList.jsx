@@ -16,6 +16,7 @@ function FilmList () {
 
   return (
     <>
+      <h3><Link to="/">Return</Link></h3>
       <div>A list of all Ghibli films:</div>
       <ul>
         {ghibliFilms.map(film => (
