@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 
-import { getGhibliFilms, getGhibliPeople } from '../api'
+import { getGhibliFilms, getGhibliPeople, getGhibliLocations } from '../api'
 
 function Film () {
   const { id } = useParams()
 
   const [ghibliFilm, setGhibliFilm] = useState([])
   const [ghibliPeople, setGhibliPeople] = useState([])
+  const [ghibliLocations, setGhibliLocations] = useState([])
 
   useEffect(() => {
     getGhibliFilms()
@@ -19,13 +20,19 @@ function Film () {
 
   useEffect(() => {
     getGhibliPeople()
-      .then(people => setGhibliPeople(people))
+      .then(people => setGhibliPeople(people.filter(person => person.films[0] === `https://ghibliapi.herokuapp.com/films/${id}`)))
       .catch((err) => {
         console.error(err.message)
       })
   }, [])
 
-  const people = ghibliPeople.filter(person => person.films[0] === `https://ghibliapi.herokuapp.com/films/${id}`)
+  useEffect(() => {
+    getGhibliLocations()
+      .then(locations => setGhibliLocations(locations.filter(location => location.films[0] === `https://ghibliapi.herokuapp.com/films/${id}`)))
+      .catch((err) => {
+        console.error(err.message)
+      })
+  }, [])
 
   return (
     <>
@@ -39,8 +46,8 @@ function Film () {
           <li>Length: {ghibliFilm.running_time}</li>
         </ul>
         <p>{ghibliFilm.description}</p>
-        <h2>Characters</h2>
-        {people.map(result => (
+        <h2>Characters: </h2>
+        {ghibliPeople.map(result => (
           <>
             <h3 key={result.id}>{result.name}</h3>
             <ul>
@@ -48,6 +55,16 @@ function Film () {
               <li>Age: {result.age}</li>
               <li>Eye Colour: {result.eye_color}</li>
               <li>Hair Colour: {result.hair_color}</li>
+            </ul>
+          </>
+        ))}
+        <h2>Locations: </h2>
+        {ghibliLocations.map(result => (
+          <>
+            <h3 key={result.id}>{result.name}</h3>
+            <ul>
+              <li>Climate: {result.climate}</li>
+              <li>Terrain: {result.terrain}</li>
             </ul>
           </>
         ))}

@@ -21,3 +21,23 @@ export function getGhibliPeople () {
       console.error('Error:', err)
     })
 }
+
+export function getGhibliLocations () {
+  return request('https://ghibliapi.herokuapp.com/locations/')
+    .then(res => {
+      return res.body
+    })
+    .catch(err => {
+      console.error('Error:', err)
+    })
+}
+
+export function getGhibliSpecies () {
+  return request('https://ghibliapi.herokuapp.com/species/')
+    .then(res => {
+      return res.body
+    })
+    .catch(err => {
+      console.error('Error:', err)
+    })
+}
