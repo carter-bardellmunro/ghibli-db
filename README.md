@@ -1,41 +1,12 @@
-# A starter project for React/Redux
+# A simple website consuming an external Studio Ghibli API
 
-> A minimalistic React/Redux starter project
+This simple website display's all the information on all of Studio Ghibli's films.
 
-To use:
+Dependencies:
+* React 
+* Redux
+* Express
+* SASS
+* Studio Ghibli API
 
-* Fork this repo
-* Rename your repo according to the app you're building
 
-```sh
-git clone https://github.com/[your-org]/[your-app].git
-cd [your-app] && npm i
-```
-
-This is the structure of this boilerplate:
-
-```sh
-.
-├── client
-│   ├── actions
-│   │   └── index.js
-│   ├── components
-│   │   ├── AddWord.jsx
-│   │   ├── App.jsx
-│   │   ├── Word.jsx
-│   │   └── Words.jsx
-│   ├── reducers
-│   │   ├── index.js
-│   │   └── words.js
-│   └── index.js
-├── public
-│   ├── index.html
-│   └── main.css
-├── server
-│   ├── index.js
-│   └── server.js
-├── .gitignore
-├── package.json
-├── README.md
-└── webpack.config.js
-```
