@@ -1,2 +1,5 @@
 node_modules
 bundle*
+server/public/style.css
+server/public/style.css.map
+.DS_Store
