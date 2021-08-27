@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://boilerplate-react-redux/./client/styles/styles.scss"],"names":[],"mappings":"AAAA;;uHAEA,C,KAEA,oB","file":"main.min.css","sourcesContent":["body {\n  background-color: red;\n}\n\nh1 {\n  color: blue;\n\n}"],"sourceRoot":""}
