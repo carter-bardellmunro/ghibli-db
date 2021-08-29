@@ -1,5 +1,5 @@
 node_modules
 bundle*
-server/public/style.css
-server/public/style.css.map
+server/public/main.min.css
+server/public/main.min.css.map
 .DS_Store
