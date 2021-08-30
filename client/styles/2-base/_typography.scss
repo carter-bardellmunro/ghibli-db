@@ -1,5 +1,11 @@
 @use '../1-helpers/vars';
 
-h1 {
-  color: vars.$primary;
+// h1 {
+//   color: vars.$primary;
+// }
+
+body {
+  font-size: 1rem;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 1.5;
 }

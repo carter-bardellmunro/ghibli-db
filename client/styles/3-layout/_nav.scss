@@ -1,0 +1,26 @@
+@use '../1-helpers/functions';
+@use '../1-helpers/mixins';
+@use '../1-helpers/vars';
+
+nav {
+  // width: functions.width(12);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0px 20px;
+  background-color: vars.$primary;
+  color: vars.$secondary;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+  }
+
+  li {
+    padding: 15px;
+  }
+
+  // @include mixins.media-queries(tablet, min) {
+  //   width: functions.width(6)
+  // }
+}
