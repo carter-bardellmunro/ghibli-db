@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 function Header () {
   return (
     <div className="container">
-      <h2>Interested in findind out more about the wonderful world of Studio Ghibli? Enter below.</h2>
-      <h2><Link to="/films">Enter</Link></h2>
+      <img src="https://wallpapercave.com/wp/aWaXW72.jpg" />
+      {/* <h2>Interested in findind out more about the wonderful world of Studio Ghibli? Enter below.</h2>
+      <h2><Link to="/films">Enter</Link></h2> */}
     </div>
   )
 }
