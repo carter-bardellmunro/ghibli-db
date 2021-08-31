@@ -3,13 +3,14 @@
 @use '../1-helpers/vars';
 
 nav {
-  // width: functions.width(12);
+   width: functions.width(12);
   display: flex;
   align-items: center;
-  justify-content: start;
-  padding: 0px 20px;
+  // justify-content: start;
   background-color: vars.$primary;
   color: vars.$secondary;
+  padding: 0 vars.$base-size * 3;
+
 
   ul {
     display: flex;
@@ -18,6 +19,14 @@ nav {
 
   li {
     padding: 15px;
+
+    a {
+      color: vars.$secondary;
+    }
+
+    a:hover {
+      color: vars.$alternative;
+    }
   }
 
   // @include mixins.media-queries(tablet, min) {
