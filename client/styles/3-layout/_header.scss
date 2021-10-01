@@ -1,4 +1,20 @@
-img {
-  width: 100%;
-  background-size: contain;
+@use '../1-helpers/vars';
+@use '../1-helpers/mixins';
+
+header {
+  height: 100px;
+  background-color: vars.$primary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-image {
+  color: vars.$secondary;
+  padding-left: vars.$base-size;
+  width: 14rem;
+
+  @include mixins.media-queries(mobile, min) {
+    padding-left: vars.$base-size * 3;
+  }
 }

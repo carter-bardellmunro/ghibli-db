@@ -3,8 +3,6 @@
 @use '../1-helpers/vars';
 
 .nav {
-  background-color: vars.$primary;
-  height: 50px;
   width: auto;
 }
 
@@ -70,7 +68,7 @@
     flex-direction: row;
     // justify-content: space-between;
     align-items: flex-end;
-    padding-bottom: vars.$base-size;
+    // padding-bottom: vars.$base-size;
     padding-right: vars.$base-size * 3;
   }
 }
@@ -81,14 +79,14 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 100vw;
+  width: 101vw;
   height: 50vh;
   z-index: 100;
   animation: growDown 300ms ease-in-out forwards;
   transform-origin: top center;
   position: relative;
-  // left: -50px;
-  top: 0;
+  left: -225px;
+  top: 120px;
 
   @keyframes growDown {
     0% {

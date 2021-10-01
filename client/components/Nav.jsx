@@ -14,9 +14,6 @@ function Nav () {
   return (
     <nav className="nav">
       {open && <div className="nav-menu-toggle">
-        {/* <div className="nav-header">
-          <h1>The Studio Ghibli Collection</h1>
-        </div> */}
         <Link to="/" className='nav-link' onClick={toggleMenu}>Home</Link>
         <Link to="/films" className='nav-link' onClick={toggleMenu}>Filmography</Link>
         <Link to href='#' className='nav-link' onClick={toggleMenu}>About</Link>
@@ -24,9 +21,6 @@ function Nav () {
       </div>
       }
       {!open && <div className="nav-menu">
-        {/* <div className="nav-header">
-          <h1>The Studio Ghibli Collection</h1>
-        </div> */}
         <Link to="/" className='nav-link'>Home</Link>
         <Link to="/films" className='nav-link'>Filmography</Link>
         <Link to href='#' className='nav-link'>About</Link>
