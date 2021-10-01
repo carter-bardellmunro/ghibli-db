@@ -16,14 +16,14 @@ function Nav () {
       {open && <div className="nav-menu-toggle">
         <Link to="/" className='nav-link' onClick={toggleMenu}>Home</Link>
         <Link to="/films" className='nav-link' onClick={toggleMenu}>Filmography</Link>
-        <Link to href='#' className='nav-link' onClick={toggleMenu}>About</Link>
+        <Link to="/about" className='nav-link' onClick={toggleMenu}>About</Link>
         <div className="close-hamburger" onClick={toggleMenu}><IoClose/></div>
       </div>
       }
       {!open && <div className="nav-menu">
         <Link to="/" className='nav-link'>Home</Link>
         <Link to="/films" className='nav-link'>Filmography</Link>
-        <Link to href='#' className='nav-link'>About</Link>
+        <Link to="/about" className='nav-link'>About</Link>
         <div className="hamburger" onClick={toggleMenu}><GiHamburgerMenu/></div>
       </div>
       }
