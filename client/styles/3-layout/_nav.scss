@@ -2,34 +2,112 @@
 @use '../1-helpers/mixins';
 @use '../1-helpers/vars';
 
-nav {
-   width: functions.width(12);
+.nav {
+  background-color: vars.$primary;
+  height: 50px;
+  width: auto;
+}
+
+.nav-link {
+  display: none;
+  font-size: vars.$base-size * 1.5;
+  color: vars.$secondary;
+  text-decoration: none;
+
+  &:hover {
+    color: vars.$alternative;
+  }
+
+  @include mixins.media-queries(mobile, min) {
+    display: block;
+    padding-left: vars.$base-size;
+    font-size: vars.$base-size;
+  }
+}
+
+.hamburger {
+  cursor: pointer;
+  color: vars.$secondary;
+  font-size: vars.$base-size * 2.5;
+  height: 100%;
   display: flex;
   align-items: center;
-  // justify-content: start;
-  background-color: vars.$primary;
-  color: vars.$secondary;
-  padding: 0 vars.$base-size * 3;
+  padding-right: vars.$base-size;
+  top: 22px;
 
-
-  ul {
-    display: flex;
-    list-style-type: none;
+  &:hover {
+    color: vars.$alternative;
   }
 
-  li {
-    padding: 15px;
-
-    a {
-      color: vars.$secondary;
-    }
-
-    a:hover {
-      color: vars.$alternative;
-    }
+  @include mixins.media-queries(mobile, min) {
+    display: none;
   }
-
-  // @include mixins.media-queries(tablet, min) {
-  //   width: functions.width(6)
-  // }
 }
+
+.close-hamburger {
+  cursor: pointer;
+  color: vars.$secondary;
+  font-size: vars.$base-size * 2.5;
+  position: absolute;
+  right: 12px;
+
+  &:hover {
+    color: vars.$alternative;
+  }
+
+  @include mixins.media-queries(mobile, min) {
+    display: none;
+  }
+}
+
+.nav-menu {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @include mixins.media-queries(mobile, min) {
+    flex-direction: row;
+    // justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: vars.$base-size;
+    padding-right: vars.$base-size * 3;
+  }
+}
+
+.nav-menu-toggle {
+  background-color: vars.$primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: 50vh;
+  z-index: 100;
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
+  position: relative;
+  // left: -50px;
+  top: 0;
+
+  @keyframes growDown {
+    0% {
+      transform: scaleY(0)
+    }
+    80% {
+      transform: scaleY(1.1)
+    }
+    100% {
+      transform: scaleY(1)
+    }
+  }
+
+& .nav-link {
+    display: block;
+}
+
+  @include mixins.media-queries(mobile, min) {
+    display: none;
+  }
+}
+

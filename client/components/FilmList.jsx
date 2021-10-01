@@ -15,7 +15,7 @@ function FilmList () {
   }, [])
 
   return (
-    <>
+    <div className="filmlist">
       <h3><Link to="/">Return</Link></h3>
       <div>A list of all Ghibli films:</div>
       <ul>
@@ -25,7 +25,7 @@ function FilmList () {
           </>
         ))}
       </ul>
-    </>
+    </div>
   )
 }
 
