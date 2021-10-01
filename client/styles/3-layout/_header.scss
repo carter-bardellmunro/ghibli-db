@@ -13,6 +13,7 @@ header {
   color: vars.$secondary;
   padding-left: vars.$base-size;
   width: 14rem;
+  align-items: center;
 
   @include mixins.media-queries(mobile, min) {
     padding-left: vars.$base-size * 3;
