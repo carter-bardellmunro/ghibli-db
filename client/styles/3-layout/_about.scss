@@ -1,0 +1,35 @@
+@use '../1-helpers/vars';
+@use '../1-helpers/mixins';
+
+.about {
+
+
+  &-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-body {
+  display: flex;
+  flex-direction: row;
+  }
+
+  img {
+    height: auto;
+    width: 30%;
+    padding-left: vars.$base-size * 3;
+
+    @include mixins.media-queries(mobile, max) {
+      height: auto;
+      width: 20%
+    }
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: vars.$base-size * 2;
+    width: 50%
+  }
+}
