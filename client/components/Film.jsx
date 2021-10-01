@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 
-import { getGhibliFilms, getGhibliPeople, getGhibliLocations } from '../api'
+import { getGhibliData } from '../api'
 
 function Film () {
   const { id } = useParams()
@@ -11,7 +11,7 @@ function Film () {
   const [ghibliLocations, setGhibliLocations] = useState([])
 
   useEffect(() => {
-    getGhibliFilms()
+    getGhibliData('films')
       .then(films => setGhibliFilm(films.find(currentFilm => currentFilm.id === id)))
       .catch((err) => {
         console.error(err.message)
@@ -19,7 +19,7 @@ function Film () {
   }, [])
 
   useEffect(() => {
-    getGhibliPeople()
+    getGhibliData('people')
       .then(people => setGhibliPeople(people.filter(person => person.films[0] === `https://ghibliapi.herokuapp.com/films/${id}`)))
       .catch((err) => {
         console.error(err.message)
@@ -27,7 +27,7 @@ function Film () {
   }, [])
 
   useEffect(() => {
-    getGhibliLocations()
+    getGhibliData('locations')
       .then(locations => setGhibliLocations(locations.filter(location => location.films[0] === `https://ghibliapi.herokuapp.com/films/${id}`)))
       .catch((err) => {
         console.error(err.message)

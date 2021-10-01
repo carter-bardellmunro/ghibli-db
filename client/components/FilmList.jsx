@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-import { getGhibliFilms } from '../api'
+import { getGhibliData } from '../api'
 
 function FilmList () {
   const [ghibliFilms, setGhibliFilms] = useState([])
 
   useEffect(() => {
-    getGhibliFilms()
+    getGhibliData('films')
       .then(films => setGhibliFilms(films))
       .catch((err) => {
         console.error(err.message)
@@ -16,8 +16,7 @@ function FilmList () {
 
   return (
     <div className="filmlist">
-      <h3><Link to="/">Return</Link></h3>
-      <div>A list of all Ghibli films:</div>
+      <h1>Filmography</h1>
       <ul>
         {ghibliFilms.map(film => (
           <>
