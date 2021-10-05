@@ -2,24 +2,16 @@
 @use '../1-helpers/mixins';
 @use '../1-helpers/vars';
 
-// .app-container {
-//   position: relative;
-//   max-width: 100%;
-//   // padding: 0 vars.$base-size * 3;
-// }
+.column-6 {
+  width: functions.width(12);
+  @include mixins.media-queries(mobile, min) {
+    width: functions.width(6);
+  }
+}
 
-.filmlist {
-  // display: flex;
-  padding: 0 vars.$base-size * 3;
-
-  // ul {
-  //   display: flex;
-  //   list-style-type: none;
-  //   flex-direction: row;
-  //   flex-wrap: wrap;
-  //   justify-content: space-between;
-  //   align-content: space-between;
-  //   align-items: center;
-  // }
-
+.column-9 {
+  width: functions.width(12);
+  @include mixins.media-queries(mobile, min) {
+    width: functions.width(9);
+  }
 }

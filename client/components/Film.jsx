@@ -36,16 +36,18 @@ function Film () {
 
   return (
     <>
-      <div>
-        <h3><Link to="/films">Return</Link></h3>
-        <h1>{ghibliFilm.title}</h1>
-        <ul>
-          <li>Director: {ghibliFilm.director}</li>
-          <li>Producer: {ghibliFilm.producer}</li>
-          <li>Release: {ghibliFilm.release_date}</li>
-          <li>Length: {ghibliFilm.running_time}</li>
-        </ul>
-        <p>{ghibliFilm.description}</p>
+      <div className="column-6">
+      <h3><Link to="/films">Return</Link></h3>
+        <div className="film-info">
+          <h1>{ghibliFilm.title}</h1>
+          <ul className="film-workers">
+            <li>Director: {ghibliFilm.director}</li>
+            <li>Producer: {ghibliFilm.producer}</li>
+            <li>Release: {ghibliFilm.release_date}</li>
+            <li>Length: {ghibliFilm.running_time}</li>
+          </ul>
+          <p className="film-desc">{ghibliFilm.description}</p>
+        </div>
         <h2>Characters: </h2>
         {ghibliPeople.map(result => (
           <>
