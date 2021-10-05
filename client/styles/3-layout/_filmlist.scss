@@ -1,0 +1,27 @@
+@use '../1-helpers/vars';
+
+.filmlist {
+  color: vars.$primary;
+  text-align: center;
+  font-size: vars.$base-size * 1.8;
+
+  .films {
+    align-content: center;
+    color: vars.$primary;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px 50px;
+    justify-content: space-evenly;
+  }
+
+  .film-link {
+    font-size: vars.$base-size * 2;
+    color: vars.$primary;
+    text-decoration: none;
+
+    &:hover {
+      color: vars.$alternative;
+    }
+  }
+}

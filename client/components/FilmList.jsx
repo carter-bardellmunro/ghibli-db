@@ -17,13 +17,13 @@ function FilmList () {
   return (
     <div className="filmlist">
       <h1>Filmography</h1>
-      <ul>
+      <div className="films">
         {ghibliFilms.map(film => (
           <>
-            <li key={film.id}><Link to={`/films/${film.id}`}>{film.title}</Link></li>
+            <Link to={`/films/${film.id}`} key={film.id} className='film-link'>{film.title}</Link>
           </>
         ))}
-      </ul>
+      </div>
     </div>
   )
 }
